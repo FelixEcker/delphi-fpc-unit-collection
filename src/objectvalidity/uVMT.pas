@@ -31,7 +31,7 @@ interface
       DynamicTable      : Pointer;
       ClassName         : PShortString;
       InstanceSize      : PLongint;
-      CkassParent       : PClass;
+      ClassParent       : PClass;
       SafeCallException : PSafeCallException;
       AfterConstruction : PAfterConstruction;
       BeforeDestruction : PBeforeDestruction;

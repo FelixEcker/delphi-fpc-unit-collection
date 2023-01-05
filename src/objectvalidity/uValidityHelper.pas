@@ -79,17 +79,17 @@ implementation
   end;
 
   function ValidClassType(ClazzType: TClass): Boolean;
-  {$ifdef mswindows}
   var
-    Vmt: PVmt;
+    {$ifdef mswindows} Vmt: PVmt; {$endif}
+    Foo: Integer;
   begin
+    {$ifdef mswindows}
     Vmt := GetVmt(ClazzType);
     result := ValidPtr(Vmt, SizeOf(Vmt^))
           and (Vmt^.SelfPtr = ClazzType)
           and ValidPtrShortString(Vmt^.ClassName)
           and ValidClassParent(PClass(Vmt^.ClassParent));
-  {$endif}
-  begin
+    {$endif}
   end;
 
   function ValidObj(Obj: TObject): Boolean;
